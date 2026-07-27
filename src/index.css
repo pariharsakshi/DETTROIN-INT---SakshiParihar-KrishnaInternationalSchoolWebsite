@@ -1,0 +1,712 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ===========================================================
+   Krishna International School Design System
+   =========================================================== */
+
+@theme {
+  /* Brand Colors */
+  --color-primary: #1E40AF;
+  --color-primary-light: #3B82F6;
+  --color-primary-dark: #1E3A8A;
+
+  --color-secondary: #F59E0B;
+  --color-secondary-light: #FBBF24;
+  --color-secondary-dark: #D97706;
+
+  --color-success: #16A34A;
+  --color-danger: #DC2626;
+
+  /* Neutral Colors */
+  --color-background: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-light: #F1F5F9;
+  --color-heading: #0F172A;
+  --color-body: #475569;
+  --color-muted: #64748B;
+  --color-border: #E2E8F0;
+
+  /* Accent Colors */
+  --color-sky: #06B6D4;
+  --color-purple: #7C3AED;
+  --color-pink: #EC4899;
+
+  /* Pastel Colors */
+  --color-pastel-blue: #DBEAFE;
+  --color-pastel-green: #DCFCE7;
+  --color-pastel-yellow: #FEF3C7;
+  --color-pastel-orange: #FFEDD5;
+  --color-pastel-purple: #F3E8FF;
+  --color-pastel-pink: #FCE7F3;
+
+  /* Fonts */
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Border Radius */
+  --radius-sm: .5rem;
+  --radius-md: .75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  /* Spacing */
+  --spacing-section: 6.5rem;
+  --spacing-section-mobile: 4rem;
+
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+  --spacing-100: 25rem;
+  --spacing-120: 30rem;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(15,23,42,.05);
+  --shadow-md: 0 10px 30px rgba(15,23,42,.08);
+  --shadow-lg: 0 20px 60px rgba(15,23,42,.10);
+  --shadow-xl: 0 30px 80px rgba(15,23,42,.15);
+}
+
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-background);
+  color: var(--color-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+p {
+  color: var(--color-body);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+/* ===========================================================
+   Layout
+   =========================================================== */
+
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding: 0 2rem;
+  }
+}
+
+section {
+  padding: var(--spacing-section) 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: var(--spacing-section-mobile) 0;
+  }
+}
+
+/* ===========================================================
+   Backgrounds
+   =========================================================== */
+
+.bg-primary-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+}
+
+.bg-secondary-gradient {
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+}
+
+.bg-light {
+  background: var(--color-background);
+}
+
+.bg-white {
+  background: #fff;
+}
+
+.bg-pattern {
+  background-image:
+    radial-gradient(circle at top right, rgba(59,130,246,.08), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(245,158,11,.08), transparent 30%);
+}
+
+/* ===========================================================
+   Cards
+   =========================================================== */
+
+.card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  transition: .35s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-flat {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.glass {
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.3);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ===========================================================
+   Buttons
+   =========================================================== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .9rem 2rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  transition: all .3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .9rem 2rem;
+  border-radius: 999px;
+  border: 2px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  font-weight: 600;
+  transition: all .3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .9rem 2rem;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: #fff;
+  font-weight: 600;
+  transition: all .3s ease;
+}
+
+.btn-gold:hover {
+  background: var(--color-secondary-dark);
+  transform: translateY(-3px);
+}
+/* ===========================================================
+   Badges
+   =========================================================== */
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .5rem 1.2rem;
+  background: var(--color-pastel-blue);
+  color: var(--color-primary);
+  border-radius: 999px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* ===========================================================
+   Images
+   =========================================================== */
+
+.image-rounded {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.image-shadow {
+  box-shadow: var(--shadow-lg);
+}
+
+.image-hover {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
+.image-hover img {
+  transition: transform .5s ease;
+}
+
+.image-hover:hover img {
+  transform: scale(1.08);
+}
+
+/* ===========================================================
+   Utilities
+   =========================================================== */
+
+.hover-lift {
+  transition: .35s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+.hover-scale {
+  transition: .35s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+.divider {
+  width: 80px;
+  height: 4px;
+  background: var(--color-secondary);
+  border-radius: 999px;
+  margin: 1rem auto 0;
+}
+/* ===========================================================
+   Forms
+   =========================================================== */
+
+.input-field,
+textarea,
+select {
+  width: 100%;
+  padding: .9rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  color: var(--color-heading);
+  font-family: var(--font-body);
+  transition: all .3s ease;
+}
+
+.input-field:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(59,130,246,.15);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+label {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+/* ===========================================================
+   Hero Utilities
+   =========================================================== */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(15,23,42,.45),
+    rgba(15,23,42,.55)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-shape {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(80px);
+  opacity: .25;
+}
+
+.hero-shape.blue {
+  width: 300px;
+  height: 300px;
+  background: #60A5FA;
+}
+
+.hero-shape.gold {
+  width: 220px;
+  height: 220px;
+  background: #FBBF24;
+}
+
+/* ===========================================================
+   Decorative Blobs
+   =========================================================== */
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .18;
+  z-index: -1;
+}
+
+.blob-primary {
+  background: var(--color-primary);
+}
+
+.blob-secondary {
+  background: var(--color-secondary);
+}
+
+/* ===========================================================
+   Animations
+   =========================================================== */
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.fade-up {
+  animation: fadeUp .8s ease forwards;
+}
+
+.pulse-soft {
+  animation: pulseSoft 3s infinite;
+}
+
+/* ===========================================================
+   Scrollbar
+   =========================================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+/* ===========================================================
+   Text Selection
+   =========================================================== */
+
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ===========================================================
+   Responsive Helpers
+   =========================================================== */
+
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  h1 {
+    line-height: 1.15;
+  }
+
+  h2 {
+    line-height: 1.2;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-gold {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ===========================================================
+   Section Helpers
+   =========================================================== */
+
+.section-title {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.section-description {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--color-muted);
+  line-height: 1.8;
+}
+
+.section-spacing-sm {
+  padding: 4rem 0;
+}
+
+.section-spacing-lg {
+  padding: 8rem 0;
+}
+
+/* ===========================================================
+   Utility Classes
+   =========================================================== */
+
+.rounded-xl {
+  border-radius: var(--radius-xl);
+}
+
+.rounded-2xl {
+  border-radius: var(--radius-2xl);
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+.border-light {
+  border: 1px solid var(--color-border);
+}
+
+.transition {
+  transition: all .3s ease;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-20 {
+  z-index: 20;
+}
+/* ===========================================================
+   Compatibility Classes
+   =========================================================== */
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-heading {
+  color: var(--color-heading);
+}
+
+.text-body {
+  color: var(--color-body);
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.border-primary {
+  border-color: var(--color-primary);
+}
+
+.hover\:bg-primary:hover {
+  background-color: var(--color-primary);
+}
+
+.hover\:text-primary:hover {
+  color: var(--color-primary);
+}
+
+.hover\:bg-secondary:hover {
+  background-color: var(--color-secondary);
+}
+
+.hover\:text-secondary:hover {
+  color: var(--color-secondary);
+}
+
+/* Navbar Logo */
+.navbar-logo {
+  width: 65px !important;
+  height: 65px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+}
